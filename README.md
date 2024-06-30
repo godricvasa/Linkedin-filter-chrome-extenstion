@@ -12,21 +12,24 @@ SiteMan is a Chrome extension that allows users to block websites of their choic
 
 To use the SiteMan Chrome extension on your machine, follow these steps:
 
-1. **Clone the Repository**:
+1. ### Clone the Repository:
 
    ```bash
    git clone https://godricvasa-admin@bitbucket.org/godricvasa/siteman.git
    cd siteman
+   ```
 
-2. **Install Dependencies**:
+2. ### Install Dependencies**:
 
    ```bash
     npm install
+   ```
 
-3. **Build the Extension**:
+3. ### Build the Extension:
 
    ```bash
    npm run build
+   ```
 
 ## Load the Extension in Chrome:
 
