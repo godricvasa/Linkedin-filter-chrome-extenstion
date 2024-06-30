@@ -22,6 +22,7 @@ const App = () => {
     }
   }, [blocklist]);
 
+  //add new sites to storage
   const addSite = () => {
     if (newSite && !blocklist.includes(newSite)) {
       setBlocklist([...blocklist, newSite]);
@@ -29,6 +30,7 @@ const App = () => {
     }
   };
 
+  //removing blocked site
   const removeSite = (site) => {
     setBlocklist(blocklist.filter((item) => item !== site));
   };
