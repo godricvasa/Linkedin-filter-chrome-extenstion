@@ -2,11 +2,15 @@
   "manifest_version": 3,
   "name": "SiteMan extension",
   "version": "1.0.0",
-  "description": "This can be used for blocking the webistes of your choice and unblock it",
+  "description": "This extension can be used for blocking and unblocking websites of your choice.",
+  "permissions": ["tabs", "storage", "activeTab", "webNavigation"],
   "icons": {
     "16": "Skull-Icon.svg.png",
     "48": "Skull-Icon.svg.png",
     "128": "Skull-Icon.svg.png"
+  },
+  "background": {
+    "service_worker": "background.js"
   },
   "action": {
     "default_icon": {
@@ -16,5 +20,11 @@
     },
     "default_title": "SiteMan",
     "default_popup": "index.html"
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["blocked.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
