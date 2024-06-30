@@ -35,25 +35,27 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Website Blocker</h1>
-      <h3>Manage Sites</h3>
+      <h1>SiteMan-Website Blocker</h1>
+      <h3>Blocked Sites</h3>
 
       {blocklist.length === 0 ? (
-        <h3>No sites are blocked</h3>
+        <h5>No sites are blocked</h5>
       ) : (
-        <h3>The blocked sites are:</h3>
+        <h5>The blocked sites are:</h5>
       )}
 
       <ul>
         {blocklist.map((site, index) => (
           <li key={index}>
             {site}
-            <button onClick={() => removeSite(site)}>Remove</button>
+            <button className="butto" onClick={() => removeSite(site)}>
+              Remove
+            </button>
           </li>
         ))}
       </ul>
 
-      <h3>Add New Sites</h3>
+      <h3>Add a site to blocklist</h3>
       <input
         type="text"
         value={newSite}
