@@ -47,6 +47,7 @@ getBlocklist((blocklist) => {
 // });
 // Function to get current URL of active tab
 // Function to get current URL of active tab
+// Function to get current URL of active tab
 const getCurrentTabUrl = (callback) => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     if (tabs.length > 0) {
@@ -58,13 +59,11 @@ const getCurrentTabUrl = (callback) => {
   });
 };
 
-// Function to check if a URL is in the blocklist
-const isUrlBlocked = (urlToCheck, callback) => {
+// Function to check if a URL is in the blocklist and block the site if blocked
+const isUrlBlocked = (url, callback) => {
   chrome.storage.sync.get(["blocklist"], (result) => {
     const blocklist = result.blocklist || [];
-    const isBlocked = blocklist.some((blockedUrl) =>
-      urlToCheck.includes(blockedUrl)
-    );
+    const isBlocked = blocklist.some((blockedUrl) => url.includes(blockedUrl));
     callback(isBlocked);
   });
 };
@@ -73,19 +72,26 @@ const isUrlBlocked = (urlToCheck, callback) => {
 const logCurrentUrlAndCheckBlocked = () => {
   getCurrentTabUrl((currentUrl) => {
     if (currentUrl) {
-      console.log("Current URL:", currentUrl);
+      //   console.log("Current URL:", currentUrl);
       isUrlBlocked(currentUrl, (blocked) => {
         if (blocked) {
-          console.log(`${currentUrl} is blocked`);
+          //   console.log(`${currentUrl} is blocked`);
+          // Block the site by updating tab URL to blocked.html
+          chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            const tabId = tabs[0].id;
+            chrome.tabs.update(tabId, {
+              url: chrome.runtime.getURL("blocked.html"),
+            });
+          });
         } else {
-          console.log(`${currentUrl} is not blocked`);
+          //   console.log(`${currentUrl} is not blocked`);
         }
       });
     } else {
-      console.log("No active tab found.");
+      //   console.log("No active tab found.");
     }
   });
 };
 
-// Interval to track current URL every 2 seconds
-setInterval(logCurrentUrlAndCheckBlocked, 5000);
+// Interval to track current URL every 5 seconds
+setInterval(logCurrentUrlAndCheckBlocked, 1000);
