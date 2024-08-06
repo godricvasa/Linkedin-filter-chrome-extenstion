@@ -1,5 +1,7 @@
 # SiteMan Chrome Extension
 
+# YouTube demo video: https://youtu.be/1jJV2YvabxM?feature=shared
+
 SiteMan is a Chrome extension that allows users to block websites of their choice by maintaining a blocklist. When a blocked website is accessed, the extension redirects the user to a custom `blocked.html` page and optionally shows an alert.
 
 ## Features
