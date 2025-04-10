@@ -19,7 +19,7 @@ To use the SiteMan Chrome extension on your machine, follow these steps:
 1. ### Clone the Repository:
 
    ```bash
-   git clone https://godricvasa-admin@bitbucket.org/godricvasa/siteman.git
+   git clone https://github.com/godricvasa/Linkedin-filter-chrome-extenstion.git
    cd siteman
    ```
 
