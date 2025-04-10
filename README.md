@@ -1,8 +1,10 @@
 # SiteMan Chrome Extension
 
-# YouTube demo video: https://youtu.be/1jJV2YvabxM?feature=shared
+<!-- # YouTube demo video: https://youtu.be/1jJV2YvabxM?feature=shared -->
 
-SiteMan is a Chrome extension that allows users to block websites of their choice by maintaining a blocklist. When a blocked website is accessed, the extension redirects the user to a custom `blocked.html` page and optionally shows an alert.
+- SiteMan is a Chrome extension that allows users to block websites of their choice by maintaining a blocklist. When a blocked website is accessed, the extension redirects the user to a custom `blocked.html` page and optionally shows an alert.
+
+- It can also filter out the promotional posts in linkedin feed [NEW FEATURE ADDED]
 
 ## Features
 
@@ -21,7 +23,7 @@ To use the SiteMan Chrome extension on your machine, follow these steps:
    cd siteman
    ```
 
-2. ### Install Dependencies**:
+2. ### Install Dependencies\*\*:
 
    ```bash
     npm install
@@ -39,4 +41,3 @@ To use the SiteMan Chrome extension on your machine, follow these steps:
 2. Enable "Developer mode" in the top right corner.
 3. Click on "Load unpacked".
 4. Select the `build` directory within the cloned repository.
-
